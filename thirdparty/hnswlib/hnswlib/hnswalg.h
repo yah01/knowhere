@@ -658,7 +658,7 @@ class HierarchicalNSW : public AlgorithmInterface<dist_t> {
         map_size_ = input.size();
         map_ =
             static_cast<char*>(mmap(nullptr, map_size_, PROT_READ, MAP_SHARED | MAP_POPULATE, input.descriptor(), 0));
-        madvise(map_, map_size_, MADV_RANDOM);
+        madvise(map_, map_size_, MADV_NORMAL);
 
         size_t dim;
         readBinaryPOD(input, metric_type_);
